@@ -1007,3 +1007,65 @@ h1, h2, h3, h4, h5, h6 {
 @media (hover: none) {
   .food-card__delete { opacity: 1; }
 }
+
+/* ============================================================================
+   TIMELINE PAGE — Date Navigation & Meal Sections
+   ============================================================================ */
+
+.timeline-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-nav-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--primary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+.timeline-nav-btn:hover {
+  background: var(--primary-ghost);
+}
+
+.timeline-nav-date {
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: color 0.15s;
+  user-select: none;
+}
+.timeline-nav-date:hover {
+  color: var(--primary);
+}
+
+.timeline-meal-section {
+  margin-bottom: var(--space-lg);
+}
+
+.timeline-meal-header {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: var(--space-xs) 0;
+  margin-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-day-entries {
+  display: flex;
+  flex-direction: column;
+}
