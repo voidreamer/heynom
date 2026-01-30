@@ -93,6 +93,7 @@ jobs:
           pip install -r requirements.txt -t package/
           cp -r app package/
           cd package && zip -r ../lambda.zip . -q
+          cd ..
           aws lambda update-function-code --function-name ${{ steps.tf.outputs.lambda_name }} --zip-file fileb://lambda.zip --no-cli-pager
       - uses: actions/setup-node@v4
         with:
@@ -153,6 +154,7 @@ jobs:
           pip install -r requirements.txt -t package/
           cp -r app package/
           cd package && zip -r ../lambda.zip . -q
+          cd ..
           aws lambda update-function-code --function-name ${{ steps.tf.outputs.lambda_name }} --zip-file fileb://lambda.zip --no-cli-pager
       - uses: actions/setup-node@v4
         with:
