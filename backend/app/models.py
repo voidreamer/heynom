@@ -1,12 +1,13 @@
 from sqlalchemy import Column, String, Text, DateTime, func
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 import uuid
 
 Base = declarative_base()
 
 class FoodEntry(Base):
     __tablename__ = "food_entries"
+    __table_args__ = {"schema": "heynom"}
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     user_id = Column(UUID(as_uuid=True), nullable=False)
