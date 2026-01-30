@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+*.zip
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+__pycache__/
+*.pyc
+package/
