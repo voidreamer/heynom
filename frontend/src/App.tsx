@@ -3,18 +3,18 @@ import { AuthProvider, useAuth } from './hooks/useAuth';
 import { useFood } from './hooks/useFood';
 import FoodEntry from './components/FoodEntry';
 import Timeline from './components/Timeline';
-import CalendarView from './components/CalendarView';
+import TimelinePage from './components/TimelinePage';
 import Stats from './components/Stats';
 import LoadingSpinner from './components/LoadingSpinner';
 import Login from './pages/Login';
-import { Home, Clock, Calendar, Settings as SettingsIcon, LogOut, Moon, Sun, User, Globe } from 'lucide-react';
+import { Home, Clock, Settings as SettingsIcon, LogOut, Moon, Sun, User, Globe } from 'lucide-react';
 import { Toaster } from 'sonner';
 
-type Tab = 'home' | 'timeline' | 'calendar' | 'settings';
+type Tab = 'home' | 'timeline' | 'settings';
 
 function MainApp() {
   const { user, logout } = useAuth();
-  const { entries, addEntry, deleteEntry, todayCount, streak, groupedEntries, sortedDates, loading } = useFood();
+  const { entries, addEntry, deleteEntry, getEntriesForDate, todayCount, streak, groupedEntries, sortedDates, loading } = useFood();
   const [activeTab, setActiveTab] = useState<Tab>('home');
   const [isDark, setIsDark] = useState(() => localStorage.getItem('heynom-theme') === 'dark');
 
@@ -44,17 +44,7 @@ function MainApp() {
         )}
 
         {activeTab === 'timeline' && (
-          <div className="timeline-page">
-            <h2 className="page-title">Timeline</h2>
-            <Timeline groupedEntries={groupedEntries} sortedDates={sortedDates} onDelete={deleteEntry} />
-          </div>
-        )}
-
-        {activeTab === 'calendar' && (
-          <div className="calendar-page">
-            <h2 className="page-title">Calendar</h2>
-            <CalendarView entries={entries} onDelete={deleteEntry} />
-          </div>
+          <TimelinePage getEntriesForDate={getEntriesForDate} onDelete={deleteEntry} />
         )}
 
         {activeTab === 'settings' && (
@@ -124,7 +114,6 @@ function MainApp() {
         {([
           { tab: 'home' as Tab, icon: Home, label: 'Home' },
           { tab: 'timeline' as Tab, icon: Clock, label: 'Timeline' },
-          { tab: 'calendar' as Tab, icon: Calendar, label: 'Calendar' },
           { tab: 'settings' as Tab, icon: SettingsIcon, label: 'Settings' },
         ]).map(({ tab, icon: Icon, label }) => (
           <button
