@@ -1,6 +1,11 @@
 /* ============================================================================
-   HEYNOM THEME SYSTEM — Matching HeyBub patterns with food palette
+   HEYNOM — Rosewood UI Theme
+   ============================================================================
+   Migrated from green/orange food palette to Rosewood warm rose/purple theme.
+   Meal-specific colors harmonized with the pink palette.
    ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
   /* Spacing */
@@ -11,128 +16,151 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
 
-  /* Border radius - softer, rounder (matching HeyBub) */
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  /* Border radius — Rosewood tokens */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Transitions */
-  --transition: all 0.2s ease;
+  /* Transitions — Rosewood cubic-bezier */
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ============================================================================
-   LIGHT THEME — warm food palette
+   LIGHT THEME
    ============================================================================ */
 :root,
 [data-theme="light"] {
-  --accent: #4CAF50;
-  --accent-dark: #388E3C;
-  --accent-light: #C8E6C9;
-  --accent-bg: #E8F5E9;
-  --accent-text: #2E7D32;
+  /* Accent — rose pink */
+  --accent: #d4849c;
+  --accent-dark: #c0708a;
+  --accent-light: #fce4ec;
+  --accent-bg: #fce4ec;
+  --accent-text: #8a3a52;
 
-  --secondary: #FF9800;
-  --secondary-dark: #F57C00;
-  --secondary-light: #FFE0B2;
-  --secondary-bg: #FFF3E0;
-  --secondary-text: #E65100;
+  /* Secondary — purple */
+  --secondary: #9878b8;
+  --secondary-dark: #7a5a9a;
+  --secondary-light: #d8c8e8;
+  --secondary-bg: #f3e5f5;
+  --secondary-text: #5a3878;
 
-  --breakfast: #FF9800;
-  --breakfast-bg: #FFF3E0;
-  --breakfast-text: #E65100;
+  /* Meal colors — harmonized with rose palette */
+  --breakfast: #d4a040;
+  --breakfast-bg: #fdf3e0;
+  --breakfast-text: #8a6820;
 
-  --lunch: #4CAF50;
-  --lunch-bg: #E8F5E9;
-  --lunch-text: #2E7D32;
+  --lunch: #7aab80;
+  --lunch-bg: #edf5ee;
+  --lunch-text: #3a6840;
 
-  --dinner: #5C6BC0;
-  --dinner-bg: #E8EAF6;
-  --dinner-text: #283593;
+  --dinner: #7a72b8;
+  --dinner-bg: #eeedf8;
+  --dinner-text: #4a4288;
 
-  --snack: #AB47BC;
-  --snack-bg: #F3E5F5;
-  --snack-text: #6A1B9A;
+  --snack: #b898d0;
+  --snack-bg: #f3e5f5;
+  --snack-text: #5a3878;
 
+  /* Backgrounds */
   --background: #fefdfb;
   --bg: #fefdfb;
   --surface: #fff9f5;
   --surface-hover: #f0ebe5;
+  --surface-elevated: #ffffff;
+
+  /* Borders */
   --border: #e8e0dc;
   --border-light: #f0e8e4;
 
-  --text: #3a3530;
-  --text-secondary: #7a6e68;
-  --text-muted: #a89890;
+  /* Text */
+  --text: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-muted: #a1a1a6;
 
-  --danger: #ef5350;
-  --danger-bg: rgba(239, 83, 80, 0.1);
-  --success: #4CAF50;
+  /* Semantic */
+  --danger: #dc3545;
+  --danger-bg: rgba(220, 53, 69, 0.1);
+  --success: #2ea860;
 
-  --shadow-sm: 0 2px 8px rgba(60, 50, 40, 0.06);
-  --shadow: 0 2px 8px rgba(60, 50, 40, 0.06);
-  --shadow-md: 0 4px 16px rgba(60, 50, 40, 0.08);
-  --shadow-lg: 0 8px 24px rgba(60, 50, 40, 0.1);
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
 
-  --font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-family-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography — Inter (Rosewood default) */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.06);
 }
 
 /* ============================================================================
    DARK THEME
    ============================================================================ */
 [data-theme="dark"] {
-  --accent: #66BB6A;
-  --accent-dark: #4CAF50;
-  --accent-light: #2E4030;
-  --accent-bg: #1B2E1E;
-  --accent-text: #81C784;
+  --accent: #e8a8c0;
+  --accent-dark: #c0708a;
+  --accent-light: rgba(232, 168, 192, 0.15);
+  --accent-bg: rgba(232, 168, 192, 0.08);
+  --accent-text: #e8a8c0;
 
-  --secondary: #FFB74D;
-  --secondary-dark: #FFA726;
-  --secondary-light: #3E3020;
-  --secondary-bg: #2E2418;
-  --secondary-text: #FFCC80;
+  --secondary: #b898d0;
+  --secondary-dark: #9878b8;
+  --secondary-light: rgba(184, 152, 208, 0.15);
+  --secondary-bg: rgba(184, 152, 208, 0.08);
+  --secondary-text: #b898d0;
 
-  --breakfast: #FFB74D;
-  --breakfast-bg: #2E2418;
-  --breakfast-text: #FFCC80;
+  /* Meal colors — dark mode */
+  --breakfast: #e8c070;
+  --breakfast-bg: rgba(232, 192, 112, 0.1);
+  --breakfast-text: #e8c070;
 
-  --lunch: #66BB6A;
-  --lunch-bg: #1B2E1E;
-  --lunch-text: #81C784;
+  --lunch: #88c8a8;
+  --lunch-bg: rgba(136, 200, 168, 0.1);
+  --lunch-text: #88c8a8;
 
-  --dinner: #7986CB;
-  --dinner-bg: #1A1E38;
-  --dinner-text: #9FA8DA;
+  --dinner: #9a90d0;
+  --dinner-bg: rgba(154, 144, 208, 0.1);
+  --dinner-text: #9a90d0;
 
-  --snack: #CE93D8;
-  --snack-bg: #2A1830;
-  --snack-text: #E1BEE7;
+  --snack: #b898d0;
+  --snack-bg: rgba(184, 152, 208, 0.1);
+  --snack-text: #b898d0;
 
+  /* Backgrounds — warm dark */
   --background: #1a1614;
   --bg: #1a1614;
-  --surface: #242018;
-  --surface-hover: #352f28;
+  --surface: #201c1a;
+  --surface-hover: #352f2b;
+  --surface-elevated: #2a2420;
+
   --border: #3a3230;
   --border-light: #2a2420;
 
-  --text: #f0e8e4;
-  --text-secondary: #b8a8a0;
-  --text-muted: #887870;
+  --text: #f5f0ec;
+  --text-secondary: #a89e98;
+  --text-muted: #6e6460;
 
-  --danger: #ef5350;
-  --danger-bg: rgba(239, 83, 80, 0.15);
-  --success: #66BB6A;
+  --danger: #e87070;
+  --danger-bg: rgba(232, 112, 112, 0.1);
+  --success: #88c8a8;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
 
-  --font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-family-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+
+  --glass-bg: rgba(32, 28, 26, 0.72);
+  --glass-border: rgba(232, 168, 192, 0.08);
 }
 
 /* ============================================================================
@@ -172,7 +200,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   margin: 0 auto;
   padding: 1rem 1.5rem;
-  background: var(--background);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -205,15 +235,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================================================
-   BOTTOM NAV (HeyBub style)
+   BOTTOM NAV — glass morphism
    ============================================================================ */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--surface);
-  border-top: 1px solid var(--border-light);
+  background: var(--glass-bg);
+  border-top: 1px solid var(--glass-border);
   display: flex;
   justify-content: space-around;
   padding: 0.5rem 0;
@@ -267,6 +297,12 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: var(--space-md);
   box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 
 .stat-card__icon {
@@ -292,7 +328,7 @@ h1, h2, h3, h4, h5, h6 {
 .stat-card__value {
   font-family: var(--font-family-heading);
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text);
   line-height: 1;
 }
@@ -332,11 +368,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
   font-weight: 500;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .food-entry-form__input:focus {
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
 }
 
 .food-entry-form__input::placeholder {
@@ -361,6 +398,7 @@ h1, h2, h3, h4, h5, h6 {
 .food-entry-form__submit:hover:not(:disabled) {
   background: var(--accent-dark);
   transform: scale(1.05);
+  box-shadow: var(--shadow-md);
 }
 
 .food-entry-form__submit:disabled {
@@ -446,7 +484,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================================================
-   FOOD CARD (Timeline entry)
+   FOOD CARD
    ============================================================================ */
 .food-card {
   display: flex;
@@ -462,6 +500,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .food-card:hover {
   box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 
 .food-card__left {
@@ -735,7 +774,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================================================
-   SETTINGS (HeyBub pattern)
+   SETTINGS
    ============================================================================ */
 .settings-page { padding: var(--space-md) 0; }
 
@@ -812,7 +851,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-text);
 }
 
-/* Toggle switch (HeyBub pattern) */
+/* Toggle switch */
 .toggle-switch {
   width: 48px;
   height: 28px;
@@ -897,6 +936,7 @@ h1, h2, h3, h4, h5, h6 {
 .login-google-btn:hover {
   border-color: var(--text-muted);
   background: var(--surface-hover);
+  box-shadow: var(--shadow-md);
 }
 
 .login-divider {
@@ -931,10 +971,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family);
   font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.login-input:focus { border-color: var(--accent); }
+.login-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
 .login-input::placeholder { color: var(--text-muted); }
 
 .login-error {
@@ -956,7 +999,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
 }
 
-.login-submit-btn:hover:not(:disabled) { background: var(--accent-dark); }
+.login-submit-btn:hover:not(:disabled) {
+  background: var(--accent-dark);
+  box-shadow: var(--shadow-md);
+}
 .login-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .login-toggle {
@@ -1018,7 +1064,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: var(--space-md);
   padding: var(--space-md) var(--space-lg);
-  background: var(--card-bg);
+  background: var(--surface);
   border-radius: var(--radius-md);
   margin-bottom: var(--space-lg);
   box-shadow: var(--shadow-sm);
@@ -1029,27 +1075,27 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  color: var(--primary);
+  color: var(--accent);
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-sm);
   transition: background 0.15s;
 }
 .timeline-nav-btn:hover {
-  background: var(--primary-ghost);
+  background: var(--accent-bg);
 }
 
 .timeline-nav-date {
   font-weight: 600;
   font-size: 1.05rem;
   cursor: pointer;
-  color: var(--text-primary);
+  color: var(--text);
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-sm);
   transition: color 0.15s;
   user-select: none;
 }
 .timeline-nav-date:hover {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 .timeline-meal-section {
